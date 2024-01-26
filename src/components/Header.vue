@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__wrapper">
-      <img src="../assets/logo.svg" alt="Test Task logo icon" />
+      <img src="@/assets/logo.svg" alt="Test Task logo icon" />
       <div class="header__buttons">
         <MainButton @click="usersClick" buttonText="Users" />
         <MainButton @click="signUpClick" buttonText="Sign up" />
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import MainButton from './reusable/MainButton.vue'
+import MainButton from '@/components/reusable/MainButton.vue'
 const signUpClick = () => {
   document.getElementById('register').scrollIntoView({ block: 'start', behavior: 'smooth' })
 }
