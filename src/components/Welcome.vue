@@ -9,7 +9,7 @@
       sizes="(max-width: 360px) 320px,
          (max-width: 768px) 728px,
          (max-width: 1024px) 1014px"
-      src="@/assets/welcome-picture_1024.webp"
+      src="@/assets/welcome-picture_768.webp"
       alt="Picture from Pexels that demonstrates blue sky and field of wheat"
     />
     <div class="welcome__wrapper">
