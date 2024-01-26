@@ -1,7 +1,7 @@
 <template>
   <div class="user__wrapper">
-    <img v-if="!isNeedPlaceholder" :src="data.photo" alt="User Photo" />
-    <img v-else src="@/assets/photo-cover.svg" alt="User Photo Placeholder" />
+    <img v-if="!isNeedPlaceholder" :src="data.photo" alt="User Photo" loading="lazy" />
+    <img v-else src="@/assets/photo-cover.svg" alt="User Photo Placeholder" loading="lazy" />
     <h3>{{ data.name }}</h3>
     <div class="user__description">
       <p>{{ data.position }}</p>
