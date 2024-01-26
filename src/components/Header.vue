@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__wrapper">
-      <img src="@/assets/logo.svg" alt="Test Task logo icon" />
+      <img src="@/assets/Logo.svg" alt="Test Task logo icon" />
       <div class="header__buttons">
         <MainButton @click="usersClick" buttonText="Users" />
         <MainButton @click="signUpClick" buttonText="Sign up" />
