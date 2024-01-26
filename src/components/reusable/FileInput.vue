@@ -103,9 +103,10 @@ watch(
     height: 56px;
     width: 300px;
     border-left: none;
-    border: 1px solid lightgray;
+    border: 1px solid #d0cfcf;
     padding: 14px 16px;
     border-radius: 0px 4px 4px 0px;
+    color: #7e7e7e;
   }
 }
 .input__wrapper-error-label {

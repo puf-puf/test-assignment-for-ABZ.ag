@@ -10,10 +10,17 @@
       @change="$emit('update:modelValue', $event.target.value)"
       @focus="isError = false"
       @blur="handleCheck"
+      id="phoneInput"
     />
-    <label class="input__wrapper-floating-label">{{ labelText }}</label>
-    <label v-if="isError" class="input__wrapper-error-label">{{ errorText }}</label>
-    <label v-if="!isValidPhone && value.length > 0" class="input__wrapper-error-label"
+    <small v-if="helper">{{ helper }}</small>
+    <label for="phoneInput" class="input__wrapper-floating-label">{{ labelText }}</label>
+    <label v-if="isError" for="phoneInput" class="input__wrapper-error-label">{{
+      errorText
+    }}</label>
+    <label
+      v-if="!isValidPhone && value.length > 0"
+      for="phoneInput"
+      class="input__wrapper-error-label"
       >Phone number must follow pattern</label
     >
   </div>
@@ -22,7 +29,7 @@
 <script setup>
 import { ref, watch, computed } from 'vue'
 
-const props = defineProps(['errorText', 'onSubmitError', 'labelText', 'value', 'pattern'])
+const props = defineProps(['errorText', 'onSubmitError', 'labelText', 'value', 'pattern', 'helper'])
 const isError = ref(false)
 const isValidPhone = computed(() => {
   return props.value.match(props.pattern) !== null
@@ -47,6 +54,10 @@ function handleCheck() {
 @import '@/assets/_breakpoints.scss';
 .input__wrapper {
   position: relative;
+  small {
+    padding: 0px 0px 0px 16px;
+    color: #7e7e7e;
+  }
   @include breakpoint(sm) {
     width: 328px;
   }
@@ -55,7 +66,7 @@ function handleCheck() {
   }
 }
 .input__wrapper-floating-input {
-  border: 1px solid black;
+  border: 1px solid #d0cfcf;
   background-color: $background-color;
   padding: 14px 16px;
   font-size: 16px;
@@ -80,6 +91,7 @@ function handleCheck() {
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
+  color: #7e7e7e;
 }
 
 .input__wrapper-floating-input:not(:placeholder-shown) ~ .input__wrapper-floating-label {

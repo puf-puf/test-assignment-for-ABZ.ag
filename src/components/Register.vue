@@ -1,5 +1,5 @@
 <template>
-  <section class="register">
+  <section class="register" id="register">
     <h2>Working with POST request</h2>
     <div class="register__wrapper">
       <form @submit="handleRegisterForm" class="register__form" id="register-form">
@@ -22,17 +22,15 @@
           :minLength="emailMinLength"
           :maxLength="emailMaxLength"
         />
-        <div>
-          <PhoneInput
-            :pattern="phonePattern"
-            errorText="Please fill your phone"
-            :onSubmitError="inputErrors.phone"
-            labelText="Phone"
-            :value="data.phone"
-            v-model="data.phone"
-          />
-          <small>+38 (XXX) XXX - XX - XX</small>
-        </div>
+        <PhoneInput
+          :pattern="phonePattern"
+          errorText="Please fill your phone"
+          :onSubmitError="inputErrors.phone"
+          labelText="Phone"
+          :value="data.phone"
+          v-model="data.phone"
+          helper="+38 (XXX) XXX - XX - XX"
+        />
 
         <RadioInput
           v-model="data.position"
@@ -60,7 +58,7 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref, computed, reactive, defineEmits } from 'vue'
+import { onBeforeMount, ref, computed, reactive } from 'vue'
 import axios from 'axios'
 import MainButton from './reusable/MainButton.vue'
 import TextInput from '@/components/reusable/TextInput.vue'
@@ -210,7 +208,6 @@ function handleRegisterForm(e) {
       headers: { Token: token, 'Content-Type': 'multipart/form-data' }
     })
     .then((response) => {
-      // WE REGISTERING BUT MAYBE PROBLEM IN WRONG IF STATEMENT, ALL OTHER WORKING, SEE YOU SOO
       if (response.data.success) {
         emit('newUserRegistered', response.data.user_id)
         clearInputs()
@@ -255,9 +252,6 @@ onBeforeMount(() => {
   flex-direction: column;
   align-items: center;
   padding: 50px 0px 100px 0px;
-  small {
-    padding: 0px 0px 0px 16px;
-  }
   .submit-button {
     text-align: center;
     margin: 50px 0px 0px 0px;

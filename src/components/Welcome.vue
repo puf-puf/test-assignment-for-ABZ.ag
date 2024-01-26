@@ -14,7 +14,7 @@
           with accessibility in mind. They should also be excited to elarn, as the world of
           Front-End Development keeps evolving
         </p>
-        <MainButton buttonText="Sign up" />
+        <MainButton @click="signUpClick" buttonText="Sign up" />
       </div>
     </div>
   </section>
@@ -22,6 +22,9 @@
 
 <script setup>
 import MainButton from './reusable/MainButton.vue'
+const signUpClick = () => {
+  document.getElementById('register').scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <style lang="scss" scoped>

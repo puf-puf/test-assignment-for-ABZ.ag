@@ -31,6 +31,6 @@ watch(props, (e) => {
 .disabled {
   background-color: #b4b4b4;
   cursor: not-allowed;
-  color: white;
+  color: #fff;
 }
 </style>

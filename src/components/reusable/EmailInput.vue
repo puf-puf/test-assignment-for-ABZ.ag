@@ -9,18 +9,22 @@
       @change="$emit('update:modelValue', $event.target.value)"
       @focus="isError = false"
       @blur="handleCheck"
+      id="emailInput"
     />
-    <label class="input__wrapper-floating-label">{{ labelText }}</label>
-    <label v-if="isError" class="input__wrapper-error-label">{{ errorText }}</label>
+    <label for="emailInput" class="input__wrapper-floating-label">{{ labelText }}</label>
+    <label v-if="isError" for="emailInput" class="input__wrapper-error-label">{{
+      errorText
+    }}</label>
     <label
       v-if="!isValidEmail && value.length > 0 && !isLessLength"
+      for="emailInput"
       class="input__wrapper-error-label"
       >Email address must be like <span>example@example.com</span></label
     >
-    <label v-if="isLessLength" class="input__wrapper-error-label"
+    <label v-if="isLessLength" for="emailInput" class="input__wrapper-error-label"
       >Email address can't be less than <span>{{ minLength }}</span> characters</label
     >
-    <label v-if="isValidEmail && isOverLength" class="input__wrapper-error-label"
+    <label v-if="isValidEmail && isOverLength" for="emailInput" class="input__wrapper-error-label"
       >Email address must be not over <span>{{ maxLength }}</span> characters</label
     >
   </div>
@@ -78,7 +82,7 @@ function handleCheck() {
   }
 }
 .input__wrapper-floating-input {
-  border: 1px solid black;
+  border: 1px solid #d0cfcf;
   background-color: $background-color;
   padding: 14px 16px;
   font-size: 16px;
@@ -103,6 +107,7 @@ function handleCheck() {
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
+  color: #7e7e7e;
 }
 
 .input__wrapper-floating-input:not(:placeholder-shown) ~ .input__wrapper-floating-label {

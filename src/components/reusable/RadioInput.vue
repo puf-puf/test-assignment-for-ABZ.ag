@@ -29,6 +29,7 @@ watch(
 
 <style lang="scss" scoped>
 @import '@/assets/_breakpoints.scss';
+@import '@/assets/main.scss';
 
 .radio__wrapper {
   margin: 25px 0px 32px 0px;
@@ -46,10 +47,56 @@ watch(
 .radio__input {
   padding: 0px 5px;
   margin: 0px 0px 7px 0px;
-  display: flex;
-  gap: 12px;
   input[type='radio'] {
-    transform: scale(1.5);
+    &:checked,
+    &:not(:checked) {
+      display: none;
+      + label {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        display: inline-block;
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 2px;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #d0cfcf;
+          border-radius: 999px;
+        }
+        &:after {
+          content: '';
+          width: 12px;
+          height: 12px;
+          background: $secondary-color;
+          position: absolute;
+          top: 6px;
+          left: 4px;
+          border-radius: 999px;
+        }
+      }
+    }
+    &:not(:checked) {
+      + label::after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+    }
+    &:checked {
+      + label {
+        &::after {
+          opacity: 1;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        &::before {
+          border-color: $secondary-color;
+        }
+      }
+    }
   }
 }
 .input__wrapper-error-label {

@@ -3,8 +3,8 @@
     <div class="header__wrapper">
       <img src="../assets/logo.svg" alt="Test Task logo icon" />
       <div class="header__buttons">
-        <MainButton buttonText="Users" />
-        <MainButton buttonText="Sign up" />
+        <MainButton @click="usersClick" buttonText="Users" />
+        <MainButton @click="signUpClick" buttonText="Sign up" />
       </div>
     </div>
   </header>
@@ -12,6 +12,12 @@
 
 <script setup>
 import MainButton from './reusable/MainButton.vue'
+const signUpClick = () => {
+  document.getElementById('register').scrollIntoView({ block: 'start', behavior: 'smooth' })
+}
+const usersClick = () => {
+  document.getElementById('users').scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -21,7 +27,6 @@ import MainButton from './reusable/MainButton.vue'
 .header__wrapper {
   display: flex;
   width: 100%;
-  max-width: 1024px;
   justify-content: space-between;
   align-items: center;
   @include breakpoint(sm) {
@@ -31,6 +36,7 @@ import MainButton from './reusable/MainButton.vue'
     padding: 12px 32px;
   }
   @include breakpoint(lg) {
+    max-width: 1024px;
     padding: 12px 60px;
   }
 }

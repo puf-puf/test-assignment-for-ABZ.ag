@@ -1,5 +1,5 @@
 <template>
-  <section class="users">
+  <section class="users" id="users">
     <h2>Working with GET request</h2>
     <div class="users__wrapper">
       <UserSquare v-for="user in users" :key="user.id" :data="user" />
